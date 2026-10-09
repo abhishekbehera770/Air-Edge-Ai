@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AirEdge AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =================================================
+            SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    A
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>AirEdge</h2>
+
+                    <span>EDGE AI</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Only Dashboard -->
+
+            <nav class="navigation">
+
+                <a
+                    href="#"
+                    class="nav-item active"
+                >
+
+                    <span>◉</span>
+
+                    Dashboard
+
+                </a>
+
+            </nav>
+
+
+            <!-- Edge AI Status -->
+
+            <div class="edge-status">
+
+                <div class="status-dot"></div>
+
+                <div>
+
+                    <strong>
+                        Edge AI Online
+                    </strong>
+
+                    <p>
+                        Local processing active
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+            MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                TOP HEADER
+            ================================================== -->
+
+            <header class="topbar">
+
+                <div class="heading">
+
+                    <p class="eyebrow">
+                        AIR QUALITY INTELLIGENCE
+                    </p>
+
+                    <h1>
+                        Hyperlocal Air
+                        <span>Intelligence</span>
+                    </h1>
+
+                    <p class="description">
+                        Real-time pollution monitoring powered by
+                        on-device Edge AI.
+                    </p>
+
+                </div>
+
+
+                <!-- Connection status -->
+
+                <div
+                    class="network-status"
+                    id="networkStatus"
+                >
+
+                    <div class="connection-dot"></div>
+
+                    <div>
+
+                        <strong id="connectionText">
+                            Backend Connected
+                        </strong>
+
+                        <p id="nodeText">
+                            NODE-01 • Flask
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                AQI + EDGE AI
+            ================================================== -->
+
+            <section class="hero-grid">
+
+
+                <!-- AQI Card -->
+
+                <div class="glass-card aqi-card">
+
+                    <div>
+
+                        <p class="card-label">
+                            CURRENT AIR QUALITY
+                        </p>
+
+
+                        <h2 id="airStatus">
+                            Loading...
+                        </h2>
+
+
+                        <p
+                            class="card-description"
+                            id="airDescription"
+                        >
+                            Getting latest sensor information...
+                        </p>
+
+
+                        <div class="location">
+
+                            ● Campus Node 01
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AQI Circle -->
+
+                    <div class="aqi-circle">
+
+                        <div
+                            class="aqi-number"
+                            id="aqiValue"
+                        >
+                            --
+                        </div>
+
+                        <div class="aqi-text">
+                            AQI
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Edge AI Card -->
+
+                <div class="glass-card edge-card">
+
+                    <div class="card-label">
+                        EDGE AI ENGINE
+                    </div>
+
+
+                    <h2>
+                        Running Locally
+                    </h2>
+
+
+                    <p class="card-description">
+                        Core intelligence is designed to run
+                        locally on the Arduino UNO Q without
+                        cloud AI dependency.
+                    </p>
+
+
+                    <div class="ai-badge">
+                        ● NO CLOUD ROUND TRIP
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                LIVE SENSOR DATA
+            ================================================== -->
+
+            <section>
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="card-label">
+                            LIVE SENSOR DATA
+                        </p>
+
+                        <h2>
+                            Environmental Parameters
+                        </h2>
+
+                    </div>
+
+
+                    <div class="live-indicator">
+
+                        <span></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+                <div class="sensor-grid">
+
+
+                    <!-- PM2.5 -->
+
+                    <div class="sensor-card">
+
+                        <p>PM2.5</p>
+
+                        <h3 id="pm25">
+                            --
+                        </h3>
+
+                        <span>
+                            µg/m³
+                        </span>
+
+                    </div>
+
+
+                    <!-- PM10 -->
+
+                    <div class="sensor-card">
+
+                        <p>PM10</p>
+
+                        <h3 id="pm10">
+                            --
+                        </h3>
+
+                        <span>
+                            µg/m³
+                        </span>
+
+                    </div>
+
+
+                    <!-- CO -->
+
+                    <div class="sensor-card">
+
+                        <p>CO</p>
+
+                        <h3 id="co">
+                            --
+                        </h3>
+
+                        <span>
+                            ppm
+                        </span>
+
+                    </div>
+
+
+                    <!-- CO2 -->
+
+                    <div class="sensor-card">
+
+                        <p>CO₂</p>
+
+                        <h3 id="co2">
+                            --
+                        </h3>
+
+                        <span>
+                            ppm
+                        </span>
+
+                    </div>
+
+
+                    <!-- NO2 -->
+
+                    <div class="sensor-card">
+
+                        <p>NO₂</p>
+
+                        <h3 id="no2">
+                            --
+                        </h3>
+
+                        <span>
+                            ppb
+                        </span>
+
+                    </div>
+
+
+                    <!-- VOC -->
+
+                    <div class="sensor-card">
+
+                        <p>VOC</p>
+
+                        <h3 id="voc">
+                            --
+                        </h3>
+
+                        <span>
+                            index
+                        </span>
+
+                    </div>
+
+
+                    <!-- Temperature -->
+
+                    <div class="sensor-card">
+
+                        <p>Temperature</p>
+
+                        <h3 id="temperature">
+                            --
+                        </h3>
+
+                        <span>
+                            °C
+                        </span>
+
+                    </div>
+
+
+                    <!-- Humidity -->
+
+                    <div class="sensor-card">
+
+                        <p>Humidity</p>
+
+                        <h3 id="humidity">
+                            --
+                        </h3>
+
+                        <span>
+                            %
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                AI INTELLIGENCE
+            ================================================== -->
+
+            <section>
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="card-label">
+                            AI INTELLIGENCE
+                        </p>
+
+                        <h2>
+                            Pollution Analysis
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="intelligence-grid">
+
+
+                    <!-- =================================================
+                        FORECAST
+                    ================================================== -->
+
+                    <div class="glass-card intelligence-card">
+
+                        <p class="card-label">
+                            EDGE AI FORECAST
+                        </p>
+
+
+                        <h2>
+                            Next 3 Hours
+                        </h2>
+
+
+                        <p class="card-description">
+                            Forecast generated from local
+                            sensor history.
+                        </p>
+
+
+                        <div class="forecast-grid">
+
+
+                            <div>
+
+                                <span>
+                                    +1h
+                                </span>
+
+                                <strong id="forecast1">
+                                    --
+                                </strong>
+
+                                <small>
+                                    AQI
+                                </small>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    +2h
+                                </span>
+
+                                <strong id="forecast2">
+                                    --
+                                </strong>
+
+                                <small>
+                                    AQI
+                                </small>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    +3h
+                                </span>
+
+                                <strong id="forecast3">
+                                    --
+                                </strong>
+
+                                <small>
+                                    AQI
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                        SOURCE DETECTION
+                    ================================================== -->
+
+                    <div class="glass-card intelligence-card">
+
+                        <p class="card-label">
+                            POLLUTION SOURCE
+                        </p>
+
+
+                        <h2 id="source">
+                            Detecting...
+                        </h2>
+
+
+                        <p class="card-description">
+                            Local sensor-fusion analysis.
+                        </p>
+
+
+                        <div class="confidence-bar">
+
+
+                            <div class="confidence-top">
+
+                                <span>
+                                    Confidence
+                                </span>
+
+                                <strong id="confidence">
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress">
+
+                                <div
+                                    class="progress-fill"
+                                    id="confidenceBar"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                        RECOMMENDATION
+                    ================================================== -->
+
+                    <div class="glass-card intelligence-card">
+
+                        <p class="card-label">
+                            AI RECOMMENDATION
+                        </p>
+
+
+                        <h2 id="recommendationTitle">
+                            Analyzing...
+                        </h2>
+
+
+                        <p
+                            class="card-description"
+                            id="recommendationMessage"
+                        >
+                            Waiting for local analysis.
+                        </p>
+
+
+                        <button
+                            class="primary-button"
+                            onclick="loadIntelligence()"
+                        >
+                            Refresh AI Insight
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                DEVICE STATUS
+            ================================================== -->
+
+            <section>
+
+                <div class="glass-card node-card">
+
+
+                    <div>
+
+                        <p class="card-label">
+                            DEVICE STATUS
+                        </p>
+
+
+                        <h2>
+                            Arduino UNO Q
+                        </h2>
+
+
+                        <p class="card-description">
+                            NODE-01 • Campus Air Quality Station
+                        </p>
+
+                    </div>
+
+
+                    <div class="node-info">
+
+
+                        <div>
+
+                            <span>
+                                DEVICE
+                            </span>
+
+                            <strong>
+                                UNO Q
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                MODE
+                            </span>
+
+                            <strong id="systemMode">
+                                DEMO
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                STORAGE
+                            </span>
+
+                            <strong>
+                                Local
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                INFERENCE
+                            </span>
+
+                            <strong>
+                                Local
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Last Update -->
+
+            <div
+                style="
+                text-align: right;
+                margin-top: 15px;
+                color: #718096;
+                font-size: 10px;
+                "
+            >
+
+                Last update:
+                <span id="lastUpdate">
+                    --
+                </span>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- Notification -->
+
+    <div
+        id="notification"
+        class="notification"
+    >
+        AI insight updated.
+    </div>
+
+
+    <!-- =================================================
+        JAVASCRIPT
+    ================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

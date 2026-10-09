@@ -1,0 +1,4 @@
+
+Flask
+Flask-Cors
+pyserial==3.5
