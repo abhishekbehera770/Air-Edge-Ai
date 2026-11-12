@@ -46,6 +46,7 @@ def forecast_aqi(aqi):
     return {
         "status": "success",
         "current_aqi": current_aqi,
+        
         "forecast_aqi": predicted_aqi,
         "predicted_aqi": predicted_aqi,
         "category": category,

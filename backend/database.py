@@ -1,4 +1,6 @@
+
 import sqlite3
+from datetime import datetime, timezone
 from config import DATABASE_PATH
 
 
@@ -53,6 +55,11 @@ def create_database():
 
 
 def save_sensor_data(data):
+    timestamp = data.get("timestamp")
+
+    if not timestamp:
+        timestamp = datetime.now(timezone.utc).isoformat()
+
     with get_connection() as connection:
         connection.execute("""
             INSERT INTO sensor_readings (
@@ -62,7 +69,7 @@ def save_sensor_data(data):
             )
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            data.get("timestamp"),
+            timestamp,
             data.get("pm25"),
             data.get("pm10"),
             data.get("co"),
